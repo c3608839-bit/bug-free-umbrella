@@ -1,12 +1,8 @@
--- Archivo de Autoexec para Delta
 local TARGET_PLACE_ID = 107778070777162
 
 if game.PlaceId == TARGET_PLACE_ID then
-    -- PEGA TODO EL CÓDIGO DE NEXO HUB AQUÍ ABAJO:
-    
-    local Players = game:GetService("Players")
-    local TeleportService = game:GetService("TeleportService")
-    -- (-- // =========================================================
+
+-- // =========================================================
 -- //  NEXO HUB: SUPREME MULTI-LANGUAGE EDITION
 -- // =========================================================
 
@@ -142,7 +138,7 @@ CloseBtn.TextSize = 10
 Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 5)
 CloseBtn.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
 
--- Bolita Flotante / Botón Minimizado (Con caracteres asiáticos/estilo "Nexo en Chino": 넥서스 / 聯結)
+-- Bolita Flotante / Botón Minimizado (Con caracteres asiáticos/estilo "Nexo en Chino": 聯結)
 local MinimizedBall = Instance.new("TextButton")
 MinimizedBall.Size = UDim2.new(0, 46, 0, 46)
 MinimizedBall.Position = UDim2.new(0, 15, 0.5, -23)
@@ -151,11 +147,11 @@ MinimizedBall.BackgroundTransparency = 0.2
 MinimizedBall.TextColor3 = Color3.fromRGB(0, 240, 255)
 MinimizedBall.Font = Enum.Font.GothamBold
 MinimizedBall.TextSize = 13
-MinimizedBall.Text = "聯結" -- Caracteres que representan conexión/enlace (Nexo) de forma estilizada y llamativa
+MinimizedBall.Text = "聯結"
 MinimizedBall.Visible = false
 MinimizedBall.Active = true
 MinimizedBall.Draggable = true
-MinimizedBall.BorderSizePixel = E
+MinimizedBall.BorderSizePixel = 0
 MinimizedBall.Parent = ScreenGui
 Instance.new("UICorner", MinimizedBall).CornerRadius = UDim.new(1, 0)
 
@@ -197,12 +193,7 @@ MinimizeBtn.MouseButton1Click:Connect(function()
     MinimizedBall.Visible = true
 end)
 
--- Permitir alternar desde la bola si el menú está abierto o cerrado
-local function toggleWindow()
-    MainFrame.Visible = not MainFrame.Visible
-end
-
--- Status Card Rediseñada (Organización interna optimizada)
+-- Status Card Rediseñada
 local StatusCard = Instance.new("Frame", MainFrame)
 StatusCard.Position = UDim2.new(0, 12, 0, 46)
 StatusCard.Size = UDim2.new(1, -24, 0, 45)
@@ -243,7 +234,7 @@ MaxBox.TextSize = 11
 MaxBox.ClearTextOnFocus = false
 Instance.new("UICorner", MaxBox).CornerRadius = UDim.new(0, 7)
 
--- Botones de Acción (Distribución Estilizada)
+-- Botones de Acción
 local JoinBtn = Instance.new("TextButton", MainFrame)
 JoinBtn.Position = UDim2.new(0, 12, 0, 134)
 JoinBtn.Size = UDim2.new(1, -24, 0, 32)
@@ -266,7 +257,7 @@ AutoBtn.TextColor3 = Color3.fromRGB(130, 140, 165)
 AutoBtn.TextSize = 10
 Instance.new("UICorner", AutoBtn).CornerRadius = UDim.new(0, 7)
 
--- Animaciones de Hover Fluidas
+-- Animaciones de Hover
 local function addHover(btn, normalColor, hoverColor)
     btn.MouseEnter:Connect(function()
         TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = hoverColor}):Play()
@@ -396,9 +387,7 @@ AutoBtn.MouseButton1Click:Connect(function()
 end)
 
 StatusLabel.Text = T.statusReady
-MinimizedBall.Visible = true -- Muestra la bola flotante por defecto para tener acceso rápido y limpio en pantalla
+MinimizedBall.Visible = true
 MainFrame.Visible = false
-)
-    
-end
 
+end
